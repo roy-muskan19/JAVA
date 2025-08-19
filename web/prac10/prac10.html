@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Full Name Splitter</title>
+  <style>
+    label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Enter Your Full Name</h2>
+
+  <input type="text" id="fullName" placeholder="Enter full name here" />
+  <button id="submitBtn">Submit</button>
+
+  <div>
+    <label>First Name: <span id="firstName">-</span></label>
+    <label>Middle Name: <span id="middleName">-</span></label>
+    <label>Last Name: <span id="lastName">-</span></label>
+  </div>
+
+  <script>
+    document.getElementById("submitBtn").addEventListener("click", function () {
+      const fullName = document.getElementById("fullName").value.trim();
+
+      if (fullName === "") {
+        alert("Please enter your full name.");
+        return;
+      }
+
+      const nameParts = fullName.split(/\s+/);
+
+      let first = "NA";
+      let middle = "NA";
+      let last = "NA";
+
+      if (nameParts.length === 1) {
+        first = nameParts[0];
+      } else if (nameParts.length === 2) {
+        first = nameParts[0];
+        last = nameParts[1];
+      } else if (nameParts.length >= 3) {
+        first = nameParts[0];
+        middle = nameParts[1];
+        last = nameParts[2];
+      }
+
+      document.getElementById("firstName").textContent = first;
+      document.getElementById("middleName").textContent = middle;
+      document.getElementById("lastName").textContent = last;
+    });
+  </script>
+
+</body>
+</html>

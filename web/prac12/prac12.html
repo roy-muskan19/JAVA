@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Font Animation</title>
+  <style>
+    #text {
+      font-size: 5pt;
+      color: red;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="text">Bigger Text</div>
+
+  <script>
+    const textElement = document.getElementById("text");
+    let fontSize = 5;
+    let increasing = true;
+
+    const interval = setInterval(() => {
+      if (increasing) {
+        fontSize++;
+        textElement.style.fontSize = fontSize + "pt";
+
+        if (fontSize >= 50) {
+          // Switch to decreasing
+          increasing = false;
+          textElement.textContent = "Smaller Text";
+          textElement.style.color = "green";
+        }
+      } else {
+        fontSize--;
+        textElement.style.fontSize = fontSize + "pt";
+
+        if (fontSize <= 5) {
+          clearInterval(interval); // Stop the animation
+        }
+      }
+    }, 10);
+  </script>
+
+</body>
+</html>

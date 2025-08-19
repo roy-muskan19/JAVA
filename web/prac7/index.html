@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Current Day and Time</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #eef;
+            text-align: center;
+            margin-top: 100px;
+        }
+        .time-box {
+            background-color: #fff;
+            padding: 30px;
+            display: inline-block;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+
+<div class="time-box">
+    <h2>Current Day and Time</h2>
+    <p id="timeOutput"></p>
+</div>
+
+<script>
+    function displayDateTime() {
+        const now = new Date();
+
+        const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        const dayName = days[now.getDay()];
+
+        let hours = now.getHours();
+        let minutes = now.getMinutes();
+        let seconds = now.getSeconds();
+        let ampm = hours >= 12 ? "PM" : "AM";
+
+        // Convert to 12-hour format
+        hours = hours % 12;
+        hours = hours ? hours : 12; // 0 should be 12
+
+        // Add leading zeros
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        const timeString = `${dayName}, ${hours}:${minutes}:${seconds} ${ampm}`;
+
+        document.getElementById("timeOutput").innerHTML = timeString;
+    }
+
+    // Initial display
+    displayDateTime();
+
+    // Update every second
+    setInterval(displayDateTime, 1000);
+</script>
+
+</body>
+</html>

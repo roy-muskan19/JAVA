@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ramanujan College Admission Form</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+
+        .form-container {
+            max-width: 600px;
+            background-color: #ffffff;
+            padding: 30px;
+            margin: auto;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #004080;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="date"],
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .radio-group, .checkbox-group {
+            margin-top: 10px;
+        }
+
+        .radio-group input,
+        .checkbox-group input {
+            margin-right: 8px;
+        }
+
+        .form-buttons {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        input[type="submit"],
+        input[type="reset"] {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            margin: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="submit"] {
+            background-color: #004080;
+            color: white;
+        }
+
+        input[type="reset"] {
+            background-color: #aaa;
+            color: white;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0066cc;
+        }
+
+        input[type="reset"]:hover {
+            background-color: #888;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <h2>Ramanujan College Admission Form<br><small>B.Voc Software Development</small></h2>
+
+        <form action="success.html" method="get">
+
+            <label for="fullname">Full Name:</label>
+            <input type="text" id="fullname" name="fullname" required>
+
+            <label for="email">Email ID:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="password">Create Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" name="dob">
+
+            <label>Gender:</label>
+            <div class="radio-group">
+                <input type="radio" id="male" name="gender" value="Male">
+                <label for="male">Male</label>
+
+                <input type="radio" id="female" name="gender" value="Female">
+                <label for="female">Female</label>
+
+                <input type="radio" id="other" name="gender" value="Other">
+                <label for="other">Other</label>
+            </div>
+
+            <label for="course">Select Course:</label>
+            <select id="course" name="course">
+                <option value="bsc">B.Voc Software Development</option>
+                <option value="bca">BCA</option>
+                <option value="ba">BA Programme</option>
+                <option value="bcom">B.Com (Hons)</option>
+            </select>
+
+            <label>Choose Your Interests:</label>
+            <div class="checkbox-group">
+                <input type="checkbox" id="ai" name="interests" value="AI">
+                <label for="ai">Artificial Intelligence</label><br>
+
+                <input type="checkbox" id="ds" name="interests" value="Data Science">
+                <label for="ds">Data Science</label><br>
+
+                <input type="checkbox" id="web" name="interests" value="Web Dev">
+                <label for="web">Web Development</label><br>
+
+                <input type="checkbox" id="cloud" name="interests" value="Cloud">
+                <label for="cloud">Cloud Computing</label>
+            </div>
+
+            <div class="form-buttons">
+                <input type="submit" value="Submit">
+                <input type="reset" value="Reset">
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>
