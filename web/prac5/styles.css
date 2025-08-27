@@ -1,0 +1,79 @@
+body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+
+        .form-container {
+            max-width: 600px;
+            background-color: #ffffff;
+            padding: 30px;
+            margin: auto;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #004080;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="date"],
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .radio-group, .checkbox-group {
+            margin-top: 10px;
+        }
+
+        .radio-group input,
+        .checkbox-group input {
+            margin-right: 8px;
+        }
+
+        .form-buttons {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        input[type="submit"],
+        input[type="reset"] {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            margin: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="submit"] {
+            background-color: #004080;
+            color: white;
+        }
+
+        input[type="reset"] {
+            background-color: #aaa;
+            color: white;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0066cc;
+        }
+
+        input[type="reset"]:hover {
+            background-color: #888;
+        }

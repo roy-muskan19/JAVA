@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Movie Streaming | Home</title>
+  <link rel="stylesheet" href="styles1.css" />
+</head>
+<body>
+
+    <!-- Banner Section with Background -->
+<section class="banner" id="main">
+  <!-- Top-right bar inside banner -->
+  <div class="top-bar">
+    <div id="google_translate_element" class="translate-bar"></div>
+    <button class="signin-btn">Sign In</button>
+  </div>
+
+  <div class="signin-container">
+    <h1>Welcome to Movie Streaming</h1>
+    <p>Unlimited Movies. Anytime. Anywhere.</p>
+  </div>
+
+  <!-- Email form -->
+  <form id="subscribeForm" class="banner-form">
+    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+    <button type="submit">Subscribe</button>
+    <p id="responseMessage"></p>
+  </form>
+</section>
+
+
+  <!-- Movie Sections -->
+  <section class="movie-section">
+    <h2>Trending Now</h2>
+    <div class="movies">
+      <a href="#" class="movie-card">
+        <img src="Screenshot 2025-08-23 222208.png" alt="Movie 1" />
+      </a>
+      <a href="#" class="movie-card">
+        <img src="Screenshot 2025-08-23 222359.png" alt="Movie 2" />
+      </a>
+      <a href="#" class="movie-card">
+        <img src="image copy.png" alt="Movie 3" />
+      </a>
+      <a href="#" class="movie-card">
+        <img src="image copy 2.png" alt="Movie 4" />
+      </a>
+    </div>
+  </section>
+
+  <section class="movie-section">
+    <h2>Top Rated</h2>
+    <div class="movies">
+      <a href="#" class="movie-card">
+        <img src="Screenshot 2025-08-24 031345.png" alt="Movie 5" />
+      </a>
+      <a href="#" class="movie-card">
+        <img src="image copy 3.png" alt="Movie 6" />
+      </a>
+      <a href="#" class="movie-card">
+        <img src="image copy 4.png" alt="Movie 7" />
+      </a>
+      <a href="#" class="movie-card">
+        <img src="image copy 5.png" alt="Movie 8" />
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Movie Streaming. All Rights Reserved.</p>
+    <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Use</a></p>
+  </footer>
+
+  <!-- Google Translate Script -->
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'en,hi,fr,de,es,ar',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+      }, 'google_translate_element');
+    }
+  </script>
+  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+  <!-- Email JS -->
+ 
+
+  </script>
+
+  <script>
+  document.getElementById("subscribeForm").addEventListener("submit", async function(event) {
+    event.preventDefault();
+
+    const email = document.getElementById("email").value;
+    const responseMessage = document.getElementById("responseMessage");
+
+    if (!email) {
+      responseMessage.textContent = "Please enter a valid email.";
+      responseMessage.style.color = "red";
+      return;
+    }
+
+    try {
+      const response = await fetch("http://localhost:3000/send-otp", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email })
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        localStorage.setItem("subscriberEmail", email);
+        localStorage.setItem("otp", result.otp); // for demo only
+        window.location.href = "verify.html"; // Create this page for OTP input
+      } else {
+        responseMessage.textContent = "Failed to send OTP. Try again.";
+        responseMessage.style.color = "red";
+      }
+    } catch (error) {
+      responseMessage.textContent = "Error: " + error.message;
+      responseMessage.style.color = "red";
+    }
+  });
+</script>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Complete Subscription</title>
+  <link rel="stylesheet" href="styles1.css" />
+</head>
+<body>
+
+  <div class="subscription-container">
+    <h2>Enter OTP</h2>
+    <p>We sent an OTP to your email: <span id="showEmail"></span></p>
+
+    <input type="text" id="otp" placeholder="Enter OTP" required />
+    <button id="verifyOtp">Verify OTP</button>
+
+    <div id="paymentSection" style="display: none; margin-top: 30px;">
+      <h2>Payment Details</h2>
+      <label>
+        Card Number:
+        <input type="text" placeholder="1234 5678 9012 3456" />
+      </label><br /><br />
+      <label>
+        Expiry Date:
+        <input type="text" placeholder="MM/YY" />
+      </label><br /><br />
+      <label>
+        CVV:
+        <input type="text" placeholder="123" />
+      </label><br /><br />
+      <button>Complete Payment</button>
+    </div>
+  </div>
+
+  <script>
+    // Display the stored email in the UI
+    const email = localStorage.getItem("subscriberEmail");
+    document.getElementById("showEmail").textContent = email || "your email";
+
+    // Verify the OTP entered by the user
+    document.getElementById("verifyOtp").addEventListener("click", () => {
+      const enteredOtp = document.getElementById("otp").value.trim();
+      const storedOtp = localStorage.getItem("otp");
+
+      if (!enteredOtp) {
+        alert("Please enter the OTP.");
+        return;
+      }
+
+      if (enteredOtp === storedOtp) {
+        alert("✅ OTP Verified Successfully!");
+        document.getElementById("paymentSection").style.display = "block";
+      } else {
+        alert("❌ Invalid OTP. Please try again.");
+      }
+    });
+  </script>
+
+</body>
+</html>

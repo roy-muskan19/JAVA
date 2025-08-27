@@ -1,0 +1,19 @@
+<input type="text" id="otpInput" placeholder="Enter OTP" />
+<button onclick="verifyOTP()">Verify</button>
+<p id="otpMessage"></p>
+
+<script>
+  function verifyOTP() {
+    const userOTP = document.getElementById("otpInput").value;
+    const storedOTP = localStorage.getItem("otp");
+
+    if (userOTP === storedOTP) {
+      document.getElementById("otpMessage").textContent = "OTP Verified!";
+      document.getElementById("otpMessage").style.color = "green";
+      // Proceed to the next page or functionality
+    } else {
+      document.getElementById("otpMessage").textContent = "Invalid OTP.";
+      document.getElementById("otpMessage").style.color = "red";
+    }
+  }
+</script>
